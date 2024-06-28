@@ -1,4 +1,4 @@
-# Deploy e Configuração do Velero
+# Deploy e Configuração do Velero na Azure
 
 ## 1. Deploy do Velero
 
@@ -76,6 +76,8 @@ Este documento de instruções e documentação do projeto.
 
 5. **Aplicar o agendamento de backup:**
    Use o comando abaixo para criar um agendamento de backup diário às 12:00 BRT com retenção de 31 dias ou execute o velero-schedule.yaml.
+
+OBS: Nao esquecer de no arquivo velero-deploy.yaml e velero-secret.yaml efetuar as alteracoes necessarias passando as secretes via variavel de ambiente ou pipeline.
 
 ## Comandos Úteis
 
