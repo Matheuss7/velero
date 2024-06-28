@@ -1,0 +1,14 @@
+apiVersion: velero.io/v1
+kind: BackupStorageLocation
+metadata:
+  name: default
+  namespace: velero
+spec:
+  provider: azure
+  objectStorage:
+    bucket: velero  # Nome do contêiner de armazenamento
+    prefix: backups
+  config:
+    resourceGroup: xxxxxxxxxxxxxxx #nome do resource group
+    storageAccount: xxxxxxxxxxxxxx  # Nome do Blob Storage
+    subscriptionId: xxx-xxx-xxxx-xxxx-x #valor da subscription ID

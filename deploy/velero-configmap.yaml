@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: velero
+  namespace: velero
+data:
+  default: |
+    [default]
+    default-volumes-to-restic = "true"
