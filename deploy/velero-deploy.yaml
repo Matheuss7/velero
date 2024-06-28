@@ -29,13 +29,13 @@ spec:
             - server
           env:
             - name: AZURE_SUBSCRIPTION_ID
-              value: a417a1df-ac2b-409e-b000-59187a0051de
+              value: xxxxxxxxxxxxxx
             - name: AZURE_TENANT_ID
-              value: 1431531c-ee17-48af-81d9-03e9bee9de88
+              value: xxxxxxxxxxxxxx
             - name: AZURE_CLIENT_ID
-              value: a968807e-ce3b-4b75-89c9-b2b1b0d06aed
+              value: xxxxxxxxxxxxxx
             - name: AZURE_CLIENT_SECRET
-              value: IEH8Q~hHjMDH3GVs2ckY4x1ENrbHQsZMO-i6kanV
+              value: xxxxxxxxxxxxxx
           volumeMounts:
             - mountPath: /plugins
               name: plugins
