@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: velero
+  namespace: velero
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: velero
+  template:
+    metadata:
+      labels:
+        component: velero
+    spec:
+      serviceAccountName: velero
+      initContainers:
+        - name: velero-plugin-for-azure
+          image: velero/velero-plugin-for-microsoft-azure:v1.5.0
+          volumeMounts:
+            - mountPath: /target
+              name: plugins
+      containers:
+        - name: velero
+          image: velero/velero:v1.9.0
+          command:
+            - /velero
+          args:
+            - server
+          env:
+            - name: AZURE_SUBSCRIPTION_ID
+              value: a417a1df-ac2b-409e-b000-59187a0051de
+            - name: AZURE_TENANT_ID
+              value: 1431531c-ee17-48af-81d9-03e9bee9de88
+            - name: AZURE_CLIENT_ID
+              value: a968807e-ce3b-4b75-89c9-b2b1b0d06aed
+            - name: AZURE_CLIENT_SECRET
+              value: IEH8Q~hHjMDH3GVs2ckY4x1ENrbHQsZMO-i6kanV
+          volumeMounts:
+            - mountPath: /plugins
+              name: plugins
+            - name: velero-config
+              mountPath: /etc/velero
+      volumes:
+        - name: velero-config
+          configMap:
+            name: velero
+        - name: plugins
+          emptyDir: {}
